@@ -3,25 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>შესვლა — პროექტის სახელი</title>
+  <title>შესვლა — Retro Game Vault</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <main>
 
+    <!-- already-logged-in: ჩანს თუ მომხმარებელი უკვე შესულია -->
+    <div id="already-logged-in" hidden style="text-align:center;padding:2rem;">
+      <p>თქვენ უკვე შესულია სისტემაში.</p>
+      <a href="index.html" class="auth-gate__link">მთავარ გვერდზე გადასვლა →</a>
+    </div>
+
     <form id="login-form">
       <!-- input type="text" ვალიდაციის ატრიბუტებით -->
       <label for="name-input">შენი სახელი</label>
-      <input id="name-input" type="text" name="name" required minlength="2" autocomplete="name">
+      <input id="name-input" type="text" name="name" required minlength="2" autocomplete="name" placeholder="მაგ. ნინო, გიორგი…">
 
-      <p id="login-error" hidden></p>
+      <p id="login-error" role="alert" hidden></p>
 
       <button type="submit">დაწყება →</button>
     </form>
 
   </main>
 
-  <script type="module" src="js/login.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>

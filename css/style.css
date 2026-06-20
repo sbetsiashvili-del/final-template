@@ -78,6 +78,13 @@ nav {
   color: var(--color-primary);
 }
 
+.nav__links a.active {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
 .nav__actions {
   display: flex;
   align-items: center;
@@ -344,17 +351,256 @@ fieldset input[type="radio"] {
   color: #000;
   font-weight: 600;
 }
+
+.game-card__details {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--color-secondary) 40%, transparent);
+  border-radius: var(--border-radius);
+  color: var(--color-secondary);
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.game-card__details:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
 /* ===== saved grid — CSS Grid აქ გამოიყენე ===== */
+#saved-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.game-card__remove {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--color-error) 40%, transparent);
+  color: var(--color-error);
+  border-radius: var(--border-radius);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.game-card__remove:hover {
+  background-color: var(--color-error);
+  color: #fff;
+}
+
+.game-card__status {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
+  border-radius: var(--border-radius);
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.game-card__status:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.game-card__status.is-played {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: #fff;
+  font-weight: 600;
+}
 
 /* ===== ჩატვირთვის და შეცდომის მდგომარეობები ===== */
+#loading-msg,
+#modal-loading {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background-color: var(--color-surface);
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-md) 0;
+  font-size: 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+}
+
+#error-msg,
+#modal-error,
+#login-error {
+  background-color: color-mix(in srgb, var(--color-error) 15%, transparent);
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-md) 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
 
 /* ===== footer ===== */
+footer {
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  color: color-mix(in srgb, var(--color-text) 40%, transparent);
+  font-size: 0.85rem;
+  background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--color-text) 5%, transparent);
+  margin-top: auto;
+}
+
+/* ===== auth gate ===== */
+#auth-gate {
+  max-width: var(--max-width);
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+  text-align: center;
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
+
+.auth-gate__link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.auth-gate__link:hover {
+  opacity: 0.8;
+}
+
+
+/* ===== modal ===== */
+#details-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: var(--spacing-md);
+}
+
+#details-modal[hidden] {
+  display: none !important;
+}
+
+#modal-content {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius);
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: var(--spacing-lg);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+#modal-close {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.2rem;
+}
+
+#modal-close:hover {
+  color: var(--color-primary);
+}
+
+#modal-loading {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+}
+
+#modal-error {
+  color: var(--color-error);
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+}
+
+#modal-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+#modal-body > *:not(img) {
+  grid-column: 1 / -1;
+}
+
+#modal-body img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
 
 /* ===== რესპონსიული ===== */
 @media (max-width: 600px) {
-  /* მობილური */
+  #results-grid,
+  #saved-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .nav__links {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  #modal-content {
+    padding: var(--spacing-md);
+    max-height: 95vh;
+    width: calc(100% - 2rem);
+  }
+
+  #modal-body img {
+    min-width: 0;
+  }
 }
 
 @media (min-width: 1024px) {
-  /* დესქტოპი */
+  :root {
+    --max-width: 1400px;
+  }
+
+  #results-grid,
+  #saved-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
 }

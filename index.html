@@ -22,11 +22,16 @@
     </nav>
   </header>
 
-  <main>
+  <!-- auth gate: ჩანს მხოლოდ მაშინ, თუ მომხმარებელი არ არის შესული -->
+  <div id="auth-gate" hidden>
+    <p>ამ გვერდის სანახავად გთხოვთ <a href="login.html" class="auth-gate__link">შეხვიდეთ</a>.</p>
+  </div>
+
+  <main id="app-main">
 
     <!-- საძიებო / ფილტრის ფორმა -->
     <section>
-      <form id="search-form">
+      <form id="search-form" action="javascript:void(0)">
 
         <div class="form-group">
           <label for="search-name">სახელი</label>
@@ -41,7 +46,7 @@
 
         <div class="form-group">
           <label for="search-genre">ჟანრი</label>
-          <select id="search-genre" name="genre" required>
+          <select id="search-genre" name="genre">
             <option value="" selected>ყველა</option>
             <option value="mmorpg">MMORPG</option>
             <option value="shooter">Shooter</option>
@@ -74,8 +79,8 @@
     </section>
 
     <!-- ჩატვირთვის და შეცდომის მდგომარეობები -->
-    <p id="loading-msg" hidden>იტვირთება…</p>
-    <p id="error-msg" hidden></p>
+    <p id="loading-msg" aria-live="polite" hidden>იტვირთება…</p>
+    <p id="error-msg" role="alert" hidden></p>
 
     <!-- დინამიურად შექმნილი ბარათები აქ განთავსდება -->
     <section>
@@ -84,10 +89,20 @@
 
   </main>
 
+<div id="details-modal" hidden>
+  <div id="modal-content">
+    <button id="modal-close" type="button" aria-label="დახურვა">×</button>
+    <p id="modal-loading" aria-live="polite" hidden>იტვირთება…</p>
+    <p id="modal-error" role="alert" hidden></p>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
   <footer>
-    <!-- footer-ის შიგთავსი -->
+    Retro Game Vault — built with the Free-to-Play Games API
   </footer>
 
-  <script type="module" src="js/main.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
