@@ -1,9 +1,40 @@
 /* ===== custom properties ===== */
 :root {
-  /* ფერების პალიტრა და დაშორებების ცვლადები */
+  /* ფერების პალიტრა */
+  --color-primary:    #f5a623;   /* amber — arcade glow */
+  --color-secondary:  #7b2fff;   /* neon violet */
+  --color-background: #0d0d14;   /* near-black */
+  --color-surface:    #1a1a2e;   /* card background */
+  --color-text:       #e8e8f0;   /* off-white */
+  --color-error:      #ff4d6d;   /* neon red */
+
+  /* ტიპოგრაფია */
+  --font-main: 'Inter', system-ui, sans-serif;
+
+  /* დაშორებები */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+
+  /* სხვა */
+  --border-radius: 0.5rem;
+  --max-width: 1200px;
 }
 
 /* ===== reset ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
 /* ===== header ===== */
 
