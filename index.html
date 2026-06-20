@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>პროექტის სახელი</title>
+  <title>Retro Game Vault</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <header>
     <nav>
-      <span class="nav__logo">პროექტის სახელი</span>
+      <span class="nav__logo">Retro Game Vault</span>
       <div class="nav__links">
         <a href="index.html">ძიება</a>
         <a href="saved.html">შენახული</a>
@@ -27,7 +27,48 @@
     <!-- საძიებო / ფილტრის ფორმა -->
     <section>
       <form id="search-form">
-        <!-- დაამატე input ველები აქ (სულ მცირე 3 განსხვავებული ტიპი) -->
+
+        <div class="form-group">
+          <label for="search-name">სახელი</label>
+          <input
+            type="text"
+            id="search-name"
+            name="q"
+            placeholder="მაგ. Warframe, RuneScape…"
+            minlength="2"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="search-genre">ჟანრი</label>
+          <select id="search-genre" name="genre" required>
+            <option value="" selected>ყველა</option>
+            <option value="mmorpg">MMORPG</option>
+            <option value="shooter">Shooter</option>
+            <option value="strategy">Strategy</option>
+            <option value="racing">Racing</option>
+            <option value="sports">Sports</option>
+            <option value="fighting">Fighting</option>
+            <option value="card">Card</option>
+          </select>
+        </div>
+
+        <fieldset>
+          <legend>პლატფორმა</legend>
+          <label>
+            <input type="radio" name="platform" value="all" checked>
+            ყველა
+          </label>
+          <label>
+            <input type="radio" name="platform" value="pc">
+            PC
+          </label>
+          <label>
+            <input type="radio" name="platform" value="browser">
+            Browser
+          </label>
+        </fieldset>
+
         <button type="submit">ძიება</button>
       </form>
     </section>
